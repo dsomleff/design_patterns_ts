@@ -13,14 +13,7 @@ class Person {
     }
 
     toString(): string {
-        return `Person lives at
-        ${this.streetAddress},
-        ${this.city},
-        ${this.postcode}\n` + `and works at
-        ${this.companyName} as a
-        ${this.position} earning
-        ${this.annualIncome}
-    `;
+        return `Person lives at ${this.streetAddress}, ${this.city}, ${this.postcode}\n` + ` and works at ${this.companyName} as a ${this.position} earning ${this.annualIncome}`;
     }
 }
 

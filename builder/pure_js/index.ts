@@ -1,6 +1,7 @@
 import PersonBuilder from "./PersonBuilder";
 
 const personBuilder = new PersonBuilder();
+
 let person = personBuilder
     .lives
     .at('420 Bratislava Road')
@@ -12,4 +13,4 @@ let person = personBuilder
     .earning(12300)
     .build();
 
-console.log(person.toString());
+person.toString();
