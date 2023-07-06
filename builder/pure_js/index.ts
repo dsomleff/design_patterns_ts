@@ -6,11 +6,10 @@ let person = personBuilder
     .at('420 Bratislava Road')
     .in('Bratislava')
     .withPostcode('82109')
-    .works
+    .toJobBuilder()
     .at('Dobrychut')
     .as('Utopenec')
     .earning(12300)
     .build();
 
-console.log(person);
-
+console.log(person.toString());

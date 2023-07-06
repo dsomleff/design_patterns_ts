@@ -1,23 +1,16 @@
 import Person from "./Person";
-import PersonJobBuilder from "./PersonJobBuilder";
-import PersonAddressBuilder from "./PersonAddressBuilder";
+import {PersonAddressBuilder} from "./PersonAddressBuilder";
 
-export default class PersonBuilder {
+class PersonBuilder {
     person: Person;
 
-    constructor(person = new Person()) {
-        this.person = person;
+    constructor() {
+        this.person = new Person();
     }
 
     get lives(): PersonAddressBuilder {
         return new PersonAddressBuilder(this.person);
     }
-
-    get works(): PersonJobBuilder {
-        return new PersonJobBuilder(this.person);
-    }
-
-    build(): Person {
-        return this.person;
-    }
 }
+
+export default PersonBuilder;

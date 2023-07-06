@@ -1,23 +1,30 @@
-import PersonBuilder from "./PersonBuilder";
 import Person from "./Person";
 
-export default class PersonJobBuilder extends PersonBuilder {
+class PersonJobBuilder {
+    person: Person;
+
     constructor(person: Person) {
-        super(person);
+        this.person = person;
     }
 
-    at(companyName: string) {
+    at(companyName: string): PersonJobBuilder {
         this.person.companyName = companyName;
         return this;
     }
 
-    as(position: string) {
+    as(position: string): PersonJobBuilder {
         this.person.position = position;
         return this;
     }
 
-    earning(annualIncome: number) {
+    earning(annualIncome: number): PersonJobBuilder {
         this.person.annualIncome = annualIncome;
         return this;
     }
+
+    build(): Person {
+        return this.person;
+    }
 }
+
+export { PersonJobBuilder };
