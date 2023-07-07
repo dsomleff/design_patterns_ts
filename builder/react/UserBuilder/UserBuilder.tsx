@@ -4,10 +4,11 @@ interface UserProps {
     firstName?: string;
     lastName?: string;
     email?: string;
+    avatarUrl?: string;
 }
 
 class UserBuilder {
-    private props: UserProps;
+    private readonly props: UserProps;
 
     constructor() {
         this.props = {};
@@ -28,6 +29,11 @@ class UserBuilder {
         return this;
     }
 
+    withAvatarUrl(avatarUrl: string): UserBuilder {
+        this.props.avatarUrl = avatarUrl;
+        return this;
+    }
+
     build(): ReactElement {
         return <User {...this.props} />;
     }
@@ -36,6 +42,7 @@ class UserBuilder {
 function User(props: UserProps) {
     return (
         <div>
+            {props.avatarUrl && <img src={props.avatarUrl} alt="Avatar" />}
             {props.firstName && <p>{props.firstName}</p>}
             {props.lastName && <p>{props.lastName}</p>}
             {props.email && <p>{props.email}</p>}
@@ -45,7 +52,11 @@ function User(props: UserProps) {
 
 function App() {
     const user1 = new UserBuilder().withFirstName("John").withEmail("john@example.com").build();
-    const user2 = new UserBuilder().withLastName("Doe").build();
+    const user2 = new UserBuilder()
+        .withFirstName("Jane")
+        .withLastName("Doe")
+        .withAvatarUrl("https://example.com/avatar.jpg")
+        .build();
 
     return (
         <div>
