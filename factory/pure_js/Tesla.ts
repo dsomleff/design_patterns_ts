@@ -4,6 +4,6 @@ export default class Tesla implements Car {
     model = "Tesla";
 
     drive() {
-        console.log(`You are driving a ${this.model}`);
+        return `You are driving a ${this.model}`;
     }
 }
