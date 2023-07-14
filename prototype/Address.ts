@@ -8,8 +8,7 @@ export class Address {
         this.country = country;
     }
 
-    deepCopy()
-    {
+    deepCopy() {
         return new Address(
             this.streetAddress,
             this.city,
@@ -17,8 +16,7 @@ export class Address {
         );
     }
 
-    toString()
-    {
+    toString() {
         return `Address: ${this.streetAddress}, ` +
             `${this.city}, ${this.country}`;
     }
